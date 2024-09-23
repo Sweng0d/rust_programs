@@ -1,0 +1,31 @@
+use std::io;
+
+fn main() {
+    let mut n_prime = String::new();
+
+    println!("Choose your number, we will check to you if It is prime or not");
+    io::stdin().read_line(&mut n_prime).expect("Choose a valid number!");
+
+    //all inputs are strings, so we need to convert them to numbers
+    let n_prime: u32 = n_prime.trim().parse().expect("please, insert a valid first number!");
+
+    if is_prime(n_prime) {
+        println!("{} is a prime number", n_prime);
+    } else {
+        println!("{} is not a prime number", n_prime);
+    }
+}
+
+fn is_prime(n: u32) -> bool {
+    if n <=1 {
+        return false;
+    }
+
+    for i in 2..=((n as f64).sqrt() as u32) {
+        if n % i == 0 {
+            return false;
+        }
+    }
+
+    true
+}
