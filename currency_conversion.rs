@@ -1,7 +1,6 @@
 fn brl_to_usd (number: u32, usdbrl: f64) -> String {
 
-    let mut new_number;
-    new_number = number as f64 / usdbrl;
+    let new_number = number as f64 / usdbrl;
     let number_converted = new_number.to_string() + " dólares";
     number_converted
 
